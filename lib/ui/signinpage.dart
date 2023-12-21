@@ -8,6 +8,7 @@ class SiginPage extends StatefulWidget {
 }
 
 class _SiginPageState extends State<SiginPage> {
+  TextEditingController emailController = TextEditingController();
   @override
   Widget build(BuildContext context) {
     return GeneralPage(
@@ -31,6 +32,13 @@ class _SiginPageState extends State<SiginPage> {
               borderRadius: BorderRadius.circular(8.0),
               border: Border.all(color: Colors.black),
             ),
+            child: TextField(
+                controller: emailController,
+                decoration: InputDecoration(
+                  border: InputBorder.none,
+                  hintStyle: greyFontStyle,
+                  hintText: 'Type your email address',
+                )),
           )
         ],
       ),
