@@ -28,8 +28,9 @@ class _SiginPageState extends State<SiginPage> {
             margin: EdgeInsets.symmetric(horizontal: defaultMargin),
             padding: EdgeInsets.symmetric(horizontal: 10),
             decoration: BoxDecoration(
-              
-            )
+              borderRadius: BorderRadius.circular(8.0),
+              border: Border.all(color: Colors.black),
+            ),
           )
         ],
       ),

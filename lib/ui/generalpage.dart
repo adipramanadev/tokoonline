@@ -30,7 +30,8 @@ class GeneralPage extends StatelessWidget {
               Column(
                 children: [
                   Container(
-                    padding: EdgeInsets.symmetric(horizontal: defaultMargin),
+                    padding:
+                        const EdgeInsets.symmetric(horizontal: defaultMargin),
                     width: double.infinity,
                     height: 100,
                     color: Colors.white,
