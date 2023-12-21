@@ -39,26 +39,27 @@ class GeneralPage extends StatelessWidget {
                   color: Colors.white,
                   child: Row(
                     children: [
-                      onBackButtonPressed != null ?
-                      GestureDetector(
-                        onTap: () {
-                          if (onBackButtonPressed != null) {
-                            onBackButtonPressed();
-                          }
-                        }, 
-                        child: Container(
-                          width: 24,
-                          height: 24,
-                          margin: EdgeInsets.only(right: 26),
-                          decoration: BoxDecoration(
-                            image: DecorationImage(
-                              image: AssetImage(
-                                
+                      onBackButtonPressed != null
+                          ? GestureDetector(
+                              onTap: () {
+                                if (onBackButtonPressed != null) {
+                                  onBackButtonPressed();
+                                }
+                              },
+                              child: Container(
+                                width: 24,
+                                height: 24,
+                                margin: EdgeInsets.only(right: 26),
+                                decoration: BoxDecoration(
+                                  image: DecorationImage(
+                                    image: AssetImage(
+                                      'assets/back_arrow.png',
+                                    ),
+                                  ),
+                                ),
                               ),
                             )
-                          )
-                        )
-                      )
+                          : SizedBox()
                     ],
                   ),
                 ),
