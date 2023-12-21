@@ -8,6 +8,8 @@ TextStyle blackFontStyle2 = GoogleFonts.poppins(
   fontSize: 22,
 );
 
+TextStyle greyFontStyle = GoogleFonts.poppins().copyWith(color: greyColor);
+
 //defaultMargin
 const double defaultMargin = 24;
 Color backColor = 'FAFAFC'.toColor();
