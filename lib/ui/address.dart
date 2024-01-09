@@ -129,11 +129,13 @@ class _AddressPageState extends State<AddressPage> {
           // ),
           Container(
             width: double.infinity,
-            margin: EdgeInsets.only(top: 24),
+            margin: const EdgeInsets.only(top: 24),
             height: 45,
-            padding: EdgeInsets.symmetric(horizontal: defaultMargin),
+            padding: const EdgeInsets.symmetric(horizontal: defaultMargin),
             child: ElevatedButton(
-              onPressed: () {},
+              onPressed: () {
+                Get.to(() => const SuccessSignUpPage());
+              },
               child: Text(
                 'Sign Up Now',
                 style: GoogleFonts.poppins(

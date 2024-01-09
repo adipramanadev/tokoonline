@@ -62,7 +62,12 @@ class IllustrationPage extends StatelessWidget {
                   width: 200,
                   height: 45,
                   child: ElevatedButton(
-                    onPressed: () {},
+                    style: ElevatedButton.styleFrom(
+                      backgroundColor: '8D92A3'.toColor(),
+                    ),
+                    onPressed: () {
+                      Get.to(HomePage());
+                    },
                     // color: '8D92A3'.toColor(),
                     // elevation: 0,
                     // shape: RoundedRectangleBorder(
