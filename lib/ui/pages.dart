@@ -8,3 +8,4 @@ import 'package:flutter_spinkit/flutter_spinkit.dart';
 part 'generalpage.dart';
 part 'signinpage.dart';
 part 'signuppage.dart';
+part 'address.dart';
