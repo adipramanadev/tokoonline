@@ -97,35 +97,36 @@ class _AddressPageState extends State<AddressPage> {
               style: blackFontStyle2,
             ),
           ),
-          Container(
-            width: double.infinity,
-            margin: EdgeInsets.symmetric(horizontal: defaultMargin),
-            padding: EdgeInsets.symmetric(horizontal: 10),
-            decoration: BoxDecoration(
-                borderRadius: BorderRadius.circular(8),
-                border: Border.all(color: Colors.black)),
-            child: DropdownButton(
-                isExpanded: true,
-                underline: SizedBox(),
-                items: [
-                  DropdownMenuItem(
-                      child: Text(
-                    'Bandung',
-                    style: blackFontStyle3,
-                  )),
-                  DropdownMenuItem(
-                      child: Text(
-                    'Jakarta',
-                    style: blackFontStyle3,
-                  )),
-                  DropdownMenuItem(
-                      child: Text(
-                    'Surabaya',
-                    style: blackFontStyle3,
-                  ))
-                ],
-                onChanged: (item) {}),
-          ),
+          // Container(
+          //   width: double.infinity,
+          //   margin: EdgeInsets.symmetric(horizontal: defaultMargin),
+          //   padding: EdgeInsets.symmetric(horizontal: 10),
+          //   decoration: BoxDecoration(
+          //     borderRadius: BorderRadius.circular(8),
+          //     border: Border.all(color: Colors.black),
+          //   ),
+          //   child: DropdownButton(
+          //       isExpanded: true,
+          //       underline: SizedBox(),
+          //       items: [
+          //         DropdownMenuItem(
+          //             child: Text(
+          //           'Bandung',
+          //           style: blackFontStyle3,
+          //         )),
+          //         DropdownMenuItem(
+          //             child: Text(
+          //           'Jakarta',
+          //           style: blackFontStyle3,
+          //         )),
+          //         DropdownMenuItem(
+          //             child: Text(
+          //           'Surabaya',
+          //           style: blackFontStyle3,
+          //         ))
+          //       ],
+          //       onChanged: (item) {}),
+          // ),
           Container(
             width: double.infinity,
             margin: EdgeInsets.only(top: 24),

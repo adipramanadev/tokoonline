@@ -113,7 +113,7 @@ class _SignUpPageState extends State<SignUpPage> {
             padding: EdgeInsets.symmetric(horizontal: defaultMargin),
             child: ElevatedButton(
               onPressed: () {
-                Get.to(AddressPage());
+                Get.to(() => AddressPage());
               },
               child: Text(
                 'Continue',
