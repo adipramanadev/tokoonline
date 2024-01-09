@@ -87,6 +87,29 @@ class _SiginPageState extends State<SiginPage> {
                     ),
                   ),
           ),
+          Container(
+            width: double.infinity,
+            margin: EdgeInsets.only(top: 24),
+            height: 45,
+            padding: EdgeInsets.symmetric(horizontal: defaultMargin),
+            child: isLoading
+                ? SpinKitFadingCircle(size: 45, color: mainColor)
+                : ElevatedButton(
+                    onPressed: () {
+                      Get.to(SignUpPage());
+                    },
+                    style: ElevatedButton.styleFrom(
+                      backgroundColor: greyColor,
+                    ),
+                    child: Text(
+                      'Create New Account',
+                      style: GoogleFonts.poppins(
+                        color: Colors.white,
+                        fontWeight: FontWeight.w500,
+                      ),
+                    ),
+                  ),
+          ),
         ],
       ),
     );
