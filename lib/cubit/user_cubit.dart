@@ -4,7 +4,7 @@ import 'package:bloc/bloc.dart';
 import 'package:equatable/equatable.dart';
 import 'package:tokoonline/models/models.dart';
 import 'package:tokoonline/services/services.dart';
-
+import 'package:bloc/bloc.dart';
 part 'user_state.dart';
 
 class UserCubit extends Cubit<UserState> {

@@ -11,6 +11,7 @@ class _SiginPageState extends State<SiginPage> {
   TextEditingController emailController = TextEditingController();
   TextEditingController passwordController = TextEditingController();
   bool isLoading = false;
+  User user = null ?? mockUser; //var siluman
   @override
   Widget build(BuildContext context) {
     return GeneralPage(
@@ -72,9 +73,36 @@ class _SiginPageState extends State<SiginPage> {
             height: 45,
             padding: EdgeInsets.symmetric(horizontal: defaultMargin),
             child: isLoading
-                ? SpinKitFadingCircle(size: 45, color: mainColor)
+                ? loadingIndicator
                 : ElevatedButton(
-                    onPressed: () {},
+                    onPressed: () async {
+                      setState(() {
+                        isLoading = true;
+                      });
+                      await context.read<UserCubit>().signIn(
+                          user, emailController.text, passwordController.text);
+                      UserState state = context.read<UserCubit>().state;
+
+                      if (state is UserLoaded) {
+                        context.read<FoodCubit>().getFoods();
+                        context.read<TransactionCubit>().getTransactions();
+                        Get.to(HomePage());
+                      } else {
+                        Get.snackbar("", "",
+                            backgroundColor: "D9435E".toColor(),
+                            icon: Icon(
+                              Icons.close,
+                              color: Colors.white,
+                            ),
+                            titleText: Text(
+                              "Sign In Failed",
+                              style: GoogleFonts.poppins(
+                                color: Colors.white,
+                                fontWeight: FontWeight.w500,
+                              ),
+                            ));
+                      }
+                    },
                     style: ElevatedButton.styleFrom(
                       backgroundColor: mainColor,
                     ),
