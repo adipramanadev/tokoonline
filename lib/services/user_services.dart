@@ -1,7 +1,8 @@
 part of 'services.dart';
 
 class UserServices {
-  static Future<ApiReturnValue<User>> signIn(String email, String password,
+  static Future<ApiReturnValue<User>> signIn(
+      User user, String email, String password,
       {http.Client? client}) async {
     if (client == null) {
       client = http.Client();
@@ -14,17 +15,8 @@ class UserServices {
         body:
             jsonEncode(<String, String>{'email': email, 'password': password}));
 
-    // if (response.statusCode != 200) {
-    //   return ApiReturnValue(message: 'Please try again', value: "");
-    // }
-    var signInResult = await UserServices.signIn(email, password);
-
-    if (signInResult.value != null) {
-      // Authentication successful, proceed with the user data
-      User user = signInResult.value!;
-    } else {
-      // Authentication failed, handle the error
-      print('Error: ${signInResult.message}');
+    if (response.statusCode != 200) {
+      return ApiReturnValue(message: 'Please try again', value: null ?? user);
     }
 
     var data = jsonDecode(response.body);
@@ -57,7 +49,7 @@ class UserServices {
         }));
 
     if (response.statusCode != 200) {
-      return ApiReturnValue(message: 'Please try again', value: User);
+      return ApiReturnValue(message: 'Please try again', value: null ?? user);
     }
 
     var data = jsonDecode(response.body);
