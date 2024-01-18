@@ -81,10 +81,11 @@ class _SiginPageState extends State<SiginPage> {
                       });
                       await context.read<UserCubit>().signIn(
                           user, emailController.text, passwordController.text);
-                      UserState state = context.read<UserCubit>().state;
+                      UserState state =
+                          context.read<UserCubit>().state; //ini masalah
 
                       if (state is UserLoaded) {
-                        context.bloc<FoodCubit>().getFoods();
+                        context.read<FoodCubit>().getFoods(); //masalah
                         context.read<TransactionCubit>().getTransactions();
                         Get.to(HomePage());
                       } else {
