@@ -14,9 +14,17 @@ class UserServices {
         body:
             jsonEncode(<String, String>{'email': email, 'password': password}));
 
-    if (response.statusCode != 200) {
-      return ApiReturnValue(
-          message: 'Please try again', value: value.toString());
+    // if (response.statusCode != 200) {
+    //   return ApiReturnValue(message: 'Please try again', value: "");
+    // }
+    var signInResult = await UserServices.signIn(email, password);
+
+    if (signInResult.value != null) {
+      // Authentication successful, proceed with the user data
+      User user = signInResult.value!;
+    } else {
+      // Authentication failed, handle the error
+      print('Error: ${signInResult.message}');
     }
 
     var data = jsonDecode(response.body);
@@ -49,7 +57,7 @@ class UserServices {
         }));
 
     if (response.statusCode != 200) {
-      return ApiReturnValue(message: 'Please try again', value: []);
+      return ApiReturnValue(message: 'Please try again', value: User);
     }
 
     var data = jsonDecode(response.body);
