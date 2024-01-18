@@ -84,23 +84,35 @@ class _SiginPageState extends State<SiginPage> {
                       UserState state = context.read<UserCubit>().state;
 
                       if (state is UserLoaded) {
-                        context.read<FoodCubit>().getFoods();
+                        context.bloc<FoodCubit>().getFoods();
                         context.read<TransactionCubit>().getTransactions();
                         Get.to(HomePage());
                       } else {
-                        Get.snackbar("", "",
-                            backgroundColor: "D9435E".toColor(),
-                            icon: Icon(
-                              Icons.close,
+                        Get.snackbar(
+                          "",
+                          "",
+                          backgroundColor: "D9435E".toColor(),
+                          icon: Icon(
+                            Icons.close,
+                            color: Colors.white,
+                          ),
+                          titleText: Text(
+                            "Sign In Failed",
+                            style: GoogleFonts.poppins(
+                              color: Colors.white,
+                              fontWeight: FontWeight.w500,
+                            ),
+                          ),
+                          messageText: Text(
+                            (state as UserLoadingFailed).message,
+                            style: GoogleFonts.poppins(
                               color: Colors.white,
                             ),
-                            titleText: Text(
-                              "Sign In Failed",
-                              style: GoogleFonts.poppins(
-                                color: Colors.white,
-                                fontWeight: FontWeight.w500,
-                              ),
-                            ));
+                          ),
+                        );
+                        setState(() {
+                          isLoading = false;
+                        });
                       }
                     },
                     style: ElevatedButton.styleFrom(
