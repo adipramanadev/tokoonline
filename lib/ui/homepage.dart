@@ -8,6 +8,8 @@ class HomePage extends StatefulWidget {
 }
 
 class _HomePageState extends State<HomePage> {
+  int selectPage = 0;
+  PageController pageController = PageController(initialPage: 0);
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -21,22 +23,37 @@ class _HomePageState extends State<HomePage> {
           ),
           SafeArea(
             child: PageView(
+              controller: pageController,
               onPageChanged: (index) {
-                setState(() {});
+                setState(() {
+                  selectPage = index;
+                });
               },
               children: [
                 Center(
                   child: FoodPage(),
                 ),
-                Center(
-                  child: OrderHistoryPage(),
-                ),
-                Center(
-                  child: ProfilePage(),
-                )
+                // Center(
+                //   child: OrderHistoryPage(),
+                // ),
+                // Center(
+                //   child: ProfilePage(),
+                // )
               ],
             ),
           ),
+          Align(
+            alignment: Alignment.bottomCenter,
+            child: CustomBottomNavBar(
+              selectedIndex: selectPage,
+              onTap: (index) {
+                setState(() {
+                  selectPage = index;
+                });
+                pageController.jumpToPage(selectPage);
+              },
+            ),
+          )
         ],
       ),
     );
